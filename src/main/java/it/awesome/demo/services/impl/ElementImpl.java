@@ -38,10 +38,10 @@ public class ElementImpl implements ElementService {
 
     @Override
     public Element update(Element object) throws Exception {
-        if(object.getId().equals(null)){
+        if (object.getId() == null) {
             throw new CannotUpdateEntityException("Impossible to update entity");
         }
-        if(!elementRepository.existsById(object.getId())){
+        if (!elementRepository.existsById(object.getId())) {
             throw new IdNotFounException("Id not found");
         }
         return elementRepository.save(object);
